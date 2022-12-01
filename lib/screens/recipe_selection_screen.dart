@@ -33,6 +33,7 @@ class RecipeList extends StatelessWidget {
           ListTile(
               title: Text(recipe.name),
               trailing: Icon(Icons.chevron_right),
+              key: Key("recipe-tile${recipes.indexOf(recipe)}"),
               onTap: () {
                 Navigator.push(
                   context,
