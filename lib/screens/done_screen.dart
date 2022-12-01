@@ -9,7 +9,7 @@ class DoneScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Text("Enjoy your coffee"),
+          Text("Enjoy your coffee", key: Key("doneScreen-text")),
         ],
       ),
     );

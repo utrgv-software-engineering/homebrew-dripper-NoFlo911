@@ -15,6 +15,7 @@ class RecipeDetailScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
+
           Text(recipe.name),
           Text("${recipe.coffeeVolumeGrams}"),
           Text("${recipe.waterVolumeGrams}"),
@@ -26,6 +27,14 @@ class RecipeDetailScreen extends StatelessWidget {
                   recipe.totaltimeinseconds.toString())),
           ElevatedButton(
             child: Text("Start"),
+
+          Text(recipe.name, key: Key("recipeName-text")),
+          Text("${recipe.coffeeVolumeGrams}", key: Key("coffeeGrams-text")),
+          Text("${recipe.waterVolumeGrams}", key: Key("waterGrams-text")),
+          ElevatedButton(
+            child: Text("Start", key: Key("start-text")),
+            key: Key("start-btn"),
+
             onPressed: () {
               Navigator.push(
                 context,
