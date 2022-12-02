@@ -14,7 +14,7 @@ class RecipeSelectionScreen extends StatelessWidget {
         children: [
           Text("Coffee Recipes", key: Key("coffee-recipes")),
           RecipeList(),
-          Text("Resources"),
+          Text("Resources", key: Key("resources-text")),
           ResourceList()
         ],
       ),
@@ -54,6 +54,7 @@ class ResourceList extends StatelessWidget {
         ListTile(
           title: Text("Coffee"),
           trailing: Icon(Icons.chevron_right),
+          key: Key("CoffeeResource-tile"),
         )
       ],
     );

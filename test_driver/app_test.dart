@@ -27,6 +27,7 @@ void main() {
       Then I should see "Test Recipe" in recipe_details_screen
       And I should see '22' as the grams of coffee
       And I should see '360' as grams of water
+      And I should see 'Total: 0:25" as the total brew time
     */
 
     test('test recipe tiles', () async {
@@ -53,6 +54,7 @@ void main() {
       Then I should see a timer on the recipe_steps_screen
       And I should see the current step
       And I should see the remianing steps
+      And I should see the time required for each step
       And I should be taken to done_screen once the all steps are done
     */
     test('test start button', () async {
@@ -135,5 +137,25 @@ void main() {
       When I tap the 'done' button FlutterDriver driver;
       Then I should be taken back to the recipe_selection_screen
     */
+  });
+
+  group("Homebrew Dripper resources happy path", () {
+    /*
+    Given I am on recipe_selection_screen
+    When I tap the "Coffee" tile
+    Then the "Coffee" tile should have been pressed
+  */
+    test("test resource link tile", () async {
+      final backButton = find.byTooltip('Back');
+      await driver.tap(backButton);
+      await driver.tap(backButton);
+      await driver.tap(backButton);
+
+      final resourceTextFinder = find.byValueKey('resources-text');
+      expect(await driver.getText(resourceTextFinder), "Resources");
+
+      final resourceTileFinder = find.byValueKey('CoffeeResource-tile');
+      await driver.waitForTappable(resourceTileFinder);
+    });
   });
 }

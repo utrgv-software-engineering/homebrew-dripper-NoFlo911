@@ -1,4 +1,5 @@
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
+import 'package:homebrew_dripper/models/coffee_resource.dart';
 import 'package:homebrew_dripper/models/recipe_step.dart';
 
 CoffeeRecipe makeSweetMariasRecipe() {
@@ -44,5 +45,43 @@ List<CoffeeRecipe> getAllRecipes() {
 class CoffeeData {
   static List<CoffeeRecipe> loadRecipes() {
     return getAllRecipes();
+  }
+}
+
+CoffeeResource linkCoffeeResource() {
+  CoffeeResource resource = CoffeeResource("Coffee", "https://www.google.com/");
+  return resource;
+}
+
+CoffeeResource linkGindersResource() {
+  CoffeeResource resource =
+      CoffeeResource("Grinders", "https://www.google.com/");
+  return resource;
+}
+
+CoffeeResource linkKettlesResource() {
+  CoffeeResource resource =
+      CoffeeResource("Kettles", "https://www.google.com/");
+  return resource;
+}
+
+CoffeeResource linkHomeberwDippersResource() {
+  CoffeeResource resource =
+      CoffeeResource("Homebrew Dripper", "https://www.google.com/");
+  return resource;
+}
+
+List<CoffeeResource> getAllResources() {
+  return [
+    linkCoffeeResource(),
+    linkGindersResource(),
+    linkKettlesResource(),
+    linkHomeberwDippersResource()
+  ];
+}
+
+class CoffeeResources {
+  static List<CoffeeResource> loadResources() {
+    return getAllResources();
   }
 }
