@@ -9,7 +9,9 @@ class RecipeStep {
     //for example, reject negative gram amounts
     minutes = 0;
     this.text = text;
-    if (time >= 60) {
+    if (time <= 0) {
+      throw ArgumentError();
+    } else if (time >= 60) {
       minutes = time ~/ 60;
       seconds = time % 60;
     } else {
