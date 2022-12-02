@@ -12,6 +12,8 @@ class RecipeStep {
     if (time >= 60) {
       minutes = time ~/ 60;
       seconds = time % 60;
+    } else {
+      seconds = time;
     }
     this.time = time;
   }
