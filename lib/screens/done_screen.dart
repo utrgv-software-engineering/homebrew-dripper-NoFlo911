@@ -7,6 +7,7 @@ class DoneScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
+          Spacer(),
           Text("enjoy your amazing handmade coffee",
               key: Key("doneScreen-text")),
           TextButton(
