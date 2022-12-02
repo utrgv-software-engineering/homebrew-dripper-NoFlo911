@@ -81,7 +81,8 @@ void main() {
       await Future.delayed(Duration(seconds: 25));
 
       final doneScreenTextFinder = find.byValueKey('doneScreen-text');
-      expect(await driver.getText(doneScreenTextFinder), "Enjoy your coffee");
+      expect(await driver.getText(doneScreenTextFinder),
+          "enjoy your amazing handmade coffee");
     }, timeout: Timeout.none);
 /*
     test('test other recipe tiles', () async {
@@ -130,10 +131,23 @@ void main() {
       final doneScreenTextFinder = find.byValueKey('doneScreen-text');
       expect(await driver.getText(doneScreenTextFinder), "Enjoy your coffee");
     }, timeout: Timeout.none);*/
+
     /*
       Given I am on done_screen
       When I tap the 'done' button FlutterDriver driver;
       Then I should be taken back to the recipe_selection_screen
     */
+
+    test('test done button', () async {
+      final doneScreenTextFinder = find.byValueKey('doneScreen-text');
+      expect(await driver.getText(doneScreenTextFinder),
+          "enjoy your amazing handmade coffee");
+      final doneTextFinder = find.byValueKey('done-text');
+      final doneBtnFinder = find.byValueKey('done-btn');
+      expect(await driver.getText(doneTextFinder), "done");
+      await driver.tap(doneBtnFinder);
+      final selectionScreenTextFinder = find.byValueKey('coffee-recipes');
+      expect(await driver.getText(selectionScreenTextFinder), "Coffee Recipes");
+    });
   });
 }
