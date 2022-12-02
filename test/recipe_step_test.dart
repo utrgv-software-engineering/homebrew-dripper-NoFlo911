@@ -57,4 +57,16 @@ void main() {
     expect(steps[4].seconds, 15);
   });
   //how do we test rejecting invalid recipe steps?
+
+  test('rejects an invalid recipe step with a time equal to 0', () {
+    //make an invalid recipe step
+
+    expect(() => RecipeStep("Add 360g water", 0), throwsArgumentError);
+  });
+
+  test('rejects an invalid recipe step with a time less than 0', () {
+    //make an invalid recipe step
+
+    expect(() => RecipeStep("Add 360g water", -1), throwsArgumentError);
+  });
 }
