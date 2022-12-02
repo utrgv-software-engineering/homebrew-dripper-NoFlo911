@@ -70,25 +70,34 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
     RecipeStep currentRecipeStep = widget.recipe.steps[currentStep];
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Recipe Steps"),
-      ),
-      body: ListView(
-        children: [
-          Text(
-            "${currentRecipeStep.text}",
-            key: Key("currentStep-text"),
-          ),
+        appBar: AppBar(
+          title: Text("Recipe Steps"),
+        ),
+        body: ListView(children: [
+          Text("${currentRecipeStep.text}", key: Key("currentStep-text")),
           Text("${stepTimeRemaining}", key: Key("timer-text")),
           Text("Steps"),
           for (RecipeStep step in remainingSteps)
             ListTile(
-              title: Text(step.text,
-                  key: Key("step${remainingSteps.indexOf(step) + 1}-text")),
-            )
-        ],
-      ),
-    );
+                title: Text(step.text,
+                    key: Key("step${remainingSteps.indexOf(step) + 1}-text")),
+                trailing: step.seconds < 10
+                    ? Text(
+                        "0" +
+                            step.minutes.toString() +
+                            ":" +
+                            "0" +
+                            step.seconds.toString(),
+                        key: Key(
+                            "step${remainingSteps.indexOf(step) + 1}-time-text"))
+                    : Text(
+                        "0" +
+                            step.minutes.toString() +
+                            ":" +
+                            step.seconds.toString(),
+                        key: Key(
+                            "step${remainingSteps.indexOf(step) + 1}-time-text")))
+        ]));
   }
 
   @override

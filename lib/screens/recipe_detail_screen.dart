@@ -18,6 +18,22 @@ class RecipeDetailScreen extends StatelessWidget {
           Text(recipe.name, key: Key("recipeName-text")),
           Text("${recipe.coffeeVolumeGrams}", key: Key("coffeeGrams-text")),
           Text("${recipe.waterVolumeGrams}", key: Key("waterGrams-text")),
+          ListTile(
+              title: Text("Steps"),
+              trailing: recipe.totaltimeinseconds < 10
+                  ? Text(
+                      "Total: " +
+                          recipe.totaltimeinminutes.toString() +
+                          ":" +
+                          "0" +
+                          recipe.totaltimeinseconds.toString(),
+                      key: Key("total-time-text"))
+                  : Text(
+                      "Total: " +
+                          recipe.totaltimeinminutes.toString() +
+                          ":" +
+                          recipe.totaltimeinseconds.toString(),
+                      key: Key("total-time-text"))),
           ElevatedButton(
             child: Text("Start", key: Key("start-text")),
             key: Key("start-btn"),
@@ -28,7 +44,7 @@ class RecipeDetailScreen extends StatelessWidget {
                     builder: (context) => RecipeStepsScreen(recipe)),
               );
             },
-          )
+          ),
         ],
       ),
     );
