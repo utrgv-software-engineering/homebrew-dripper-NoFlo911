@@ -161,11 +161,6 @@ void main() {
     Then the "Kettles" tile should have been pressed
   */
     test("test resource link tile", () async {
-      final backButton = find.byTooltip('Back');
-      await driver.tap(backButton);
-      await driver.tap(backButton);
-      await driver.tap(backButton);
-
       final resourceTextFinder = find.byValueKey('resources-text');
       expect(await driver.getText(resourceTextFinder), "Resources");
 
