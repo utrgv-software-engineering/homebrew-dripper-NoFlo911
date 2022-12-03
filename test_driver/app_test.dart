@@ -27,6 +27,7 @@ void main() {
       Then I should see "Test Recipe" in recipe_details_screen
       And I should see '22' as the grams of coffee
       And I should see '360' as grams of water
+      And I should see 'Total: 0:25" as the total brew time
     */
 
     test('test recipe tiles', () async {
@@ -53,6 +54,7 @@ void main() {
       Then I should see a timer on the recipe_steps_screen
       And I should see the current step
       And I should see the remianing steps
+      And I should see the time required for each step
       And I should be taken to done_screen once the all steps are done
     */
     test('test start button', () async {
@@ -148,6 +150,33 @@ void main() {
       await driver.tap(doneBtnFinder);
       final selectionScreenTextFinder = find.byValueKey('coffee-recipes');
       expect(await driver.getText(selectionScreenTextFinder), "Coffee Recipes");
+    });
+  });
+
+  group("Homebrew Dripper resources happy path", () {
+    /*
+    Given I am on recipe_selection_screen
+    And I see multiple resource links
+    When I tap the "Kettles" tile
+    Then the "Kettles" tile should have been pressed
+  */
+    test("test resource link tile", () async {
+      final resourceTextFinder = find.byValueKey('resources-text');
+      expect(await driver.getText(resourceTextFinder), "Resources");
+
+      final coffeeResourceTileFinder = find.byValueKey('CoffeeResource-tile');
+      final grinderResourceTileFinder =
+          find.byValueKey('GrindersResource-tile');
+      final kettleResourceTileFinder = find.byValueKey('KettlesResource-tile');
+      final homebrewDripperResourceTileFinder =
+          find.byValueKey('Homebrew DripperResource-tile');
+      expect(await driver.getText(coffeeResourceTileFinder), "Coffee");
+      expect(await driver.getText(grinderResourceTileFinder), "Grinders");
+      expect(await driver.getText(kettleResourceTileFinder), "Kettles");
+      expect(await driver.getText(homebrewDripperResourceTileFinder),
+          "Homebrew Dripper");
+
+      await driver.tap(kettleResourceTileFinder);
     });
   });
 }
