@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:homebrew_dripper/models/coffee_recipe.dart';
+import 'package:homebrew_dripper/models/coffee_resource.dart';
 import 'package:homebrew_dripper/screens/recipe_detail_screen.dart';
 import 'package:homebrew_dripper/utils/coffee_data.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class RecipeSelectionScreen extends StatelessWidget {
   @override
@@ -47,15 +49,23 @@ class RecipeList extends StatelessWidget {
 }
 
 class ResourceList extends StatelessWidget {
+  List<CoffeeResource> resources = CoffeeResources.loadResources();
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ListTile(
-          title: Text("Coffee"),
-          trailing: Icon(Icons.chevron_right),
-          key: Key("CoffeeResource-tile"),
-        )
+        for (CoffeeResource resource in resources)
+          ListTile(
+              title: Text(resource.name,
+                  key: Key("${resource.name}Resource-tile")),
+              trailing: Icon(Icons.chevron_right),
+              onTap: () async {
+                if (await canLaunchUrlString(resource.link)) {
+                  await launchUrlString(resource.link,
+                      mode: LaunchMode.inAppWebView);
+                }
+              })
       ],
     );
   }

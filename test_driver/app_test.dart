@@ -142,8 +142,9 @@ void main() {
   group("Homebrew Dripper resources happy path", () {
     /*
     Given I am on recipe_selection_screen
-    When I tap the "Coffee" tile
-    Then the "Coffee" tile should have been pressed
+    And I see multiple resource links
+    When I tap the "Kettles" tile
+    Then the "Kettles" tile should have been pressed
   */
     test("test resource link tile", () async {
       final backButton = find.byTooltip('Back');
@@ -154,8 +155,19 @@ void main() {
       final resourceTextFinder = find.byValueKey('resources-text');
       expect(await driver.getText(resourceTextFinder), "Resources");
 
-      final resourceTileFinder = find.byValueKey('CoffeeResource-tile');
-      await driver.waitForTappable(resourceTileFinder);
+      final coffeeResourceTileFinder = find.byValueKey('CoffeeResource-tile');
+      final grinderResourceTileFinder =
+          find.byValueKey('GrindersResource-tile');
+      final kettleResourceTileFinder = find.byValueKey('KettlesResource-tile');
+      final homebrewDripperResourceTileFinder =
+          find.byValueKey('Homebrew DripperResource-tile');
+      expect(await driver.getText(coffeeResourceTileFinder), "Coffee");
+      expect(await driver.getText(grinderResourceTileFinder), "Grinders");
+      expect(await driver.getText(kettleResourceTileFinder), "Kettles");
+      expect(await driver.getText(homebrewDripperResourceTileFinder),
+          "Homebrew Dripper");
+
+      await driver.tap(kettleResourceTileFinder);
     });
   });
 }
