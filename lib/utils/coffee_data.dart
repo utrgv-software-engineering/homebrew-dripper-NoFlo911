@@ -38,8 +38,72 @@ CoffeeRecipe makeTestRecipe() {
   return recipe;
 }
 
+CoffeeRecipe makeHoundstoothCoffee() {
+  List<RecipeStep> steps = [
+    RecipeStep("Add 100g water", 10),
+    RecipeStep("Cover and wait", 15),
+    RecipeStep("Stir", 10),
+    RecipeStep("Add 260g water", 20),
+    RecipeStep("Cover and wait", 60),
+    RecipeStep("Stir", 10),
+    RecipeStep("Cover and wait", 90),
+  ];
+  CoffeeRecipe recipe = CoffeeRecipe(
+      "Houndstooth Coffee",
+      22,
+      360,
+      "finely ground coffee",
+      "The original recipe: makes one delicious cup",
+      steps);
+  return recipe;
+}
+
+CoffeeRecipe makeSightGlass() {
+  List<RecipeStep> steps = [
+    RecipeStep("Add 300g water", 15),
+    RecipeStep("Cover and wait", 30),
+    RecipeStep("Stir", 15),
+    RecipeStep("Cover and wait", 60),
+    RecipeStep("Release the brew", 75)
+  ];
+  CoffeeRecipe recipe = CoffeeRecipe(
+      "Slight Glass",
+      22,
+      300,
+      "finely ground coffee",
+      "The original recipe: makes one delicious cup",
+      steps);
+  return recipe;
+}
+
+CoffeeRecipe makeSeriousEats() {
+  List<RecipeStep> steps = [
+    RecipeStep("Add 100g water", 15),
+    RecipeStep("Stir", 15),
+    RecipeStep("Cover and wait", 30),
+    RecipeStep("Add 210g water", 15),
+    RecipeStep("Stir", 15),
+    RecipeStep("Cover and wait", 180),
+    RecipeStep("Release the brew", 45)
+  ];
+  CoffeeRecipe recipe = CoffeeRecipe(
+      "Serious Eats",
+      22,
+      300,
+      "finely ground coffee",
+      "The original recipe: makes one delicious cup",
+      steps);
+  return recipe;
+}
+
 List<CoffeeRecipe> getAllRecipes() {
-  return [makeSweetMariasRecipe(), makeTestRecipe()];
+  return [
+    makeSweetMariasRecipe(),
+    /*makeTestRecipe(),*/
+    makeSeriousEats(),
+    makeHoundstoothCoffee(),
+    makeSightGlass(),
+  ];
 }
 
 class CoffeeData {
