@@ -11,7 +11,15 @@ class RecipeSelectionScreen extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          Text("Coffee Recipes", key: Key("coffee-recipes")),
+          Text(
+            "Coffee Recipes",
+            key: Key("coffee-recipes"),
+            style: TextStyle(
+              color: Color(0xff4c748b),
+              fontWeight: FontWeight.w400,
+              fontFamily: "Kollektif",
+            ),
+          ),
           RecipeList(),
           Text("Resources", key: Key("resources-text")),
           ResourceList()
