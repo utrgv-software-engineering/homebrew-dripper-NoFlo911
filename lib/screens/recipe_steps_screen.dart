@@ -68,33 +68,79 @@ class _RecipeStepsScreenState extends State<RecipeStepsScreen> {
   @override
   Widget build(BuildContext context) {
     RecipeStep currentRecipeStep = widget.recipe.steps[currentStep];
-
     return Scaffold(
-        body: ListView(children: [
-      Text("${currentRecipeStep.text}", key: Key("currentStep-text")),
-      Text("${stepTimeRemaining}", key: Key("timer-text")),
-      Text("Steps"),
-      for (RecipeStep step in remainingSteps)
-        ListTile(
-            title: Text(step.text,
-                key: Key("step${remainingSteps.indexOf(step) + 1}-text")),
-            trailing: step.seconds < 10
-                ? Text(
-                    "0" +
-                        step.minutes.toString() +
-                        ":" +
-                        "0" +
-                        step.seconds.toString(),
+      backgroundColor: Color(0XFF4C748B),
+      body: ListView(
+        padding: EdgeInsets.only(top: 85),
+        children: [
+          Center(
+            child: Column(children: [
+              Text("$stepTimeRemaining",
+                  key: Key("timer-text"),
+                  style: TextStyle(
+                      fontFamily: 'Kollektif',
+                      fontWeight: FontWeight.w400,
+                      fontSize: 96,
+                      color: Color(0xFFFFFFFF))),
+              Padding(
+                padding: EdgeInsets.fromLTRB(0, 45, 0, 65),
+                child: Text("${currentRecipeStep.text}",
+                    key: Key("currentStep-text"),
+                    style: TextStyle(
+                        fontFamily: 'Kollektif',
+                        fontWeight: FontWeight.w400,
+                        fontSize: 24,
+                        color: Color(0xFFFFFFFF))),
+              )
+            ]),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(25, 0, 0, 10),
+            child: Text("Steps",
+                style: TextStyle(
+                    fontFamily: 'Kollektif',
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                    color: Color(0xFFFFFFFF))),
+          ),
+          for (RecipeStep step in remainingSteps)
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 15),
+              child: ListTile(
+                dense: true,
+                visualDensity: VisualDensity(vertical: -4),
+                shape: remainingSteps.indexOf(step) == 0
+                    ? RoundedRectangleBorder(
+                        side: BorderSide(
+                          color: Color(0xFFFFFFFF),
+                          width: 2,
+                        ),
+                        borderRadius: BorderRadius.circular(10))
+                    : null,
+                title: Text(step.text,
+                    key: Key("step${remainingSteps.indexOf(step) + 1}-text"),
+                    style: TextStyle(
+                        fontFamily: 'Kollektif',
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                        color: Color(0xFFFFFFFF))),
+                trailing: Text(
+                    step.seconds < 10
+                        ? "0${step.minutes}:0${step.seconds}"
+                        : "0${step.minutes}:${step.seconds}",
                     key: Key(
-                        "step${remainingSteps.indexOf(step) + 1}-time-text"))
-                : Text(
-                    "0" +
-                        step.minutes.toString() +
-                        ":" +
-                        step.seconds.toString(),
-                    key: Key(
-                        "step${remainingSteps.indexOf(step) + 1}-time-text")))
-    ]));
+                        "step${remainingSteps.indexOf(step) + 1}-time-text"),
+                    style: TextStyle(
+                      fontFamily: 'Kollektif',
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      color: Color(0xFFFFFFFF),
+                    )),
+              ),
+            ),
+        ],
+      ),
+    );
   }
 
   @override
