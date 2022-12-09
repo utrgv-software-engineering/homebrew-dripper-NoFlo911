@@ -176,5 +176,22 @@ void main() {
     //how do we test rejecting invalid coffee recipes?
   });
 
-  //how do we test rejecting invalid coffee recipes?
+  //make an invalid recipe step
+  group('reject invalid recipes', () {
+    List<RecipeStep> steps = [
+      RecipeStep("Add 360g water", 30),
+      RecipeStep("Cover and wait", 90),
+      RecipeStep("Stir", 15),
+      RecipeStep("Cover and wait", 75),
+      RecipeStep("Stir", 15),
+    ];
+    test('test invalid coffeeVolumeGrams', () {
+      expect(() => CoffeeRecipe('test', -22, 360, 'grindSize', 'misc', steps),
+          throwsArgumentError);
+    });
+    test('test invalid waterVolumeGrams', () {
+      expect(() => CoffeeRecipe('test', 22, -360, 'grindSize', 'misc', steps),
+          throwsArgumentError);
+    });
+  });
 }

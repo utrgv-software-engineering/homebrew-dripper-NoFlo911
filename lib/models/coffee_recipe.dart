@@ -11,7 +11,21 @@ class CoffeeRecipe {
   int totaltimeinseconds = 0;
   CoffeeRecipe(name, coffeeVolumeGrams, waterVolumeGrams, grindSize,
       miscDetails, steps) {
+    this.name = name;
+
     //add any rules to reject invalid values
+    if (coffeeVolumeGrams <= 0) {
+      throw ArgumentError();
+    }
+
+    this.coffeeVolumeGrams = coffeeVolumeGrams;
+
+    if (waterVolumeGrams <= 0) {
+      throw ArgumentError();
+    }
+    this.waterVolumeGrams = waterVolumeGrams;
+    this.grindSize = grindSize;
+    this.miscDetails = miscDetails;
     //for example, reject negative gram amounts
     for (RecipeStep step in steps) {
       totaltimeinseconds += step.time;
@@ -21,11 +35,6 @@ class CoffeeRecipe {
       totaltimeinseconds = totaltimeinseconds % 60;
     }
 
-    this.name = name;
-    this.coffeeVolumeGrams = coffeeVolumeGrams;
-    this.waterVolumeGrams = waterVolumeGrams;
-    this.grindSize = grindSize;
-    this.miscDetails = miscDetails;
     this.steps = steps;
   }
 }
