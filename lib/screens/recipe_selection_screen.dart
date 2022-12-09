@@ -9,20 +9,62 @@ class RecipeSelectionScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffe5e5e5),
       body: ListView(
         children: [
-          Text(
-            "Coffee Recipes",
-            key: Key("coffee-recipes"),
-            style: TextStyle(
-              color: Color(0xff4c748b),
-              fontWeight: FontWeight.w400,
-              fontFamily: "Kollektif",
+          Container(
+            margin: EdgeInsets.fromLTRB(87, 49, 87, 16),
+            child: Text(
+              "Coffee Recipes",
+              key: Key("coffee-recipes"),
+              style: TextStyle(
+                  color: Color(0xff4c748b),
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "Kollektif",
+                  fontSize: 24,
+                  letterSpacing: 1.6),
             ),
           ),
-          RecipeList(),
-          Text("Resources", key: Key("resources-text")),
-          ResourceList()
+          Container(
+              decoration: BoxDecoration(
+                  color: Color(0xfff3f3f3),
+                  border: Border.all(
+                      color: Color(0xff4c748b),
+                      width: 2.0,
+                      style: BorderStyle.solid),
+                  borderRadius: BorderRadius.circular(10.0)),
+              margin: EdgeInsets.only(
+                left: 19,
+                bottom: 0,
+                right: 19,
+              ),
+              child: RecipeList()),
+          Container(
+            margin: EdgeInsets.fromLTRB(120, 30, 120, 16),
+            child: Text(
+              "Resources",
+              key: Key("resources-text"),
+              style: TextStyle(
+                  color: Color(0xff4c748b),
+                  fontWeight: FontWeight.w700,
+                  fontFamily: "Kollektif",
+                  fontSize: 24,
+                  letterSpacing: 1.6),
+            ),
+          ),
+          Container(
+              decoration: BoxDecoration(
+                  color: Color(0xfff3f3f3),
+                  border: Border.all(
+                      color: Color(0xff4c748b),
+                      width: 2.0,
+                      style: BorderStyle.solid),
+                  borderRadius: BorderRadius.circular(10.0)),
+              margin: EdgeInsets.only(
+                left: 19,
+                right: 19,
+              ),
+              child: ResourceList()),
         ],
       ),
     );
@@ -34,12 +76,22 @@ class RecipeList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        for (CoffeeRecipe recipe in recipes)
+    return Column(children: <Widget>[
+      for (CoffeeRecipe recipe in recipes)
+        Container(
+            child: Column(children: [
           ListTile(
-              title: Text(recipe.name),
-              trailing: Icon(Icons.chevron_right),
+              visualDensity: VisualDensity(vertical: -4),
+              title: Container(
+                  margin: EdgeInsets.only(left: 28),
+                  child: Text(recipe.name,
+                      style: TextStyle(
+                          color: Color(0xff4c748b),
+                          fontWeight: FontWeight.w500,
+                          fontFamily: "Montserrat",
+                          fontSize: 14,
+                          letterSpacing: 1.6))),
+              trailing: Icon(Icons.chevron_right, color: Color(0xff4c748b)),
               key: Key("recipe-tile${recipes.indexOf(recipe)}"),
               onTap: () {
                 Navigator.push(
@@ -47,9 +99,11 @@ class RecipeList extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => RecipeDetailScreen(recipe)),
                 );
-              })
-      ],
-    );
+              }),
+          if (recipe.name != "Slight Glass")
+            Divider(color: Color(0xff4c748b), thickness: 1)
+        ]))
+    ]);
   }
 }
 
@@ -61,16 +115,30 @@ class ResourceList extends StatelessWidget {
     return Column(
       children: [
         for (CoffeeResource resource in resources)
-          ListTile(
-              title: Text(resource.name,
-                  key: Key("${resource.name}Resource-tile")),
-              trailing: Icon(Icons.chevron_right),
-              onTap: () async {
-                if (await canLaunchUrlString(resource.link)) {
-                  await launchUrlString(resource.link,
-                      mode: LaunchMode.inAppWebView);
-                }
-              })
+          Container(
+              child: Column(children: [
+            ListTile(
+                visualDensity: VisualDensity(vertical: -4),
+                title: Container(
+                    margin: EdgeInsets.only(left: 28),
+                    child: Text(resource.name,
+                        key: Key("${resource.name}Resource-tile"),
+                        style: TextStyle(
+                            color: Color(0xff4c748b),
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Montserrat",
+                            fontSize: 14,
+                            letterSpacing: 1.6))),
+                trailing: Icon(Icons.chevron_right, color: Color(0xff4c748b)),
+                onTap: () async {
+                  if (await canLaunchUrlString(resource.link)) {
+                    await launchUrlString(resource.link,
+                        mode: LaunchMode.inAppWebView);
+                  }
+                }),
+            if (resource.name != "Homebrew Dripper")
+              Divider(color: Color(0xff4c748b), thickness: 1)
+          ]))
       ],
     );
   }
