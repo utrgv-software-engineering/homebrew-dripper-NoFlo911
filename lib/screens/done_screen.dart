@@ -7,11 +7,31 @@ class DoneScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          Spacer(),
-          Text("enjoy your amazing handmade coffee",
-              key: Key("doneScreen-text")),
+          Container(
+            margin: EdgeInsets.fromLTRB(100, 250, 87, 16),
+            child: Text(
+              "enjoy your amazing \n handmade coffee",
+              key: Key("doneScreen-text"),
+              style: TextStyle(
+                  color: Color(0xff4c748b),
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "Montserrat",
+                  fontSize: 18,
+                  letterSpacing: 1.6),
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.fromLTRB(100, 280, 87, 16),
+          ),
           TextButton(
-            child: Text("done", key: Key("done-text")),
+            child: Text("done",
+                key: Key("done-text"),
+                style: TextStyle(
+                    color: Color(0xff4c748b),
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "Montserrat",
+                    fontSize: 18,
+                    letterSpacing: 1.6)),
             key: Key("done-btn"),
             onPressed: () {
               Navigator.push(
@@ -20,7 +40,7 @@ class DoneScreen extends StatelessWidget {
                     builder: (context) => RecipeSelectionScreen()),
               );
             },
-          )
+          ),
         ],
       ),
     );

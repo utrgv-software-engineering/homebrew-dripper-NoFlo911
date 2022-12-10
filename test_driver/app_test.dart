@@ -344,7 +344,7 @@ void main() {
     test('test done button', () async {
       final doneScreenTextFinder = find.byValueKey('doneScreen-text');
       expect(await driver.getText(doneScreenTextFinder),
-          "enjoy your amazing handmade coffee");
+          "enjoy your amazing \n handmade coffee");
       final doneTextFinder = find.byValueKey('done-text');
       final doneBtnFinder = find.byValueKey('done-btn');
       expect(await driver.getText(doneTextFinder), "done");
@@ -429,7 +429,7 @@ void main() {
     await Future.delayed(Duration(seconds: 225));
     final doneScreenTextFinder = find.byValueKey('doneScreen-text');
     expect(await driver.getText(doneScreenTextFinder),
-        "enjoy your amazing handmade coffee");
+        "enjoy your amazing \n handmade coffee");
     final doneTextFinder = find.byValueKey('done-text');
     final doneBtnFinder = find.byValueKey('done-btn');
     expect(await driver.getText(doneTextFinder), "done");
