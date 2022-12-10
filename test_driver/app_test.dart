@@ -37,9 +37,10 @@ void main() {
 
       expect(await driver.getText(recipeNameTextFinder), "Sweet Maria's");
       final coffeeGramsTextFinder = find.byValueKey('coffeeGrams-text');
-      expect(await driver.getText(coffeeGramsTextFinder), "22");
+      expect(await driver.getText(coffeeGramsTextFinder),
+          "22g - finely ground coffee");
       final waterGramsTextFinder = find.byValueKey('waterGrams-text');
-      expect(await driver.getText(waterGramsTextFinder), "360");
+      expect(await driver.getText(waterGramsTextFinder), "360g - water");
       final recipeTotalTimeFinder = find.byValueKey('total-time-text');
       expect(await driver.getText(recipeTotalTimeFinder), "Total: 3:45");
       final backButtonFinder = find.byValueKey('Back-Button');
@@ -58,9 +59,10 @@ void main() {
 
       expect(await driver.getText(recipeNameTextFinder), "Sweet Maria's");
       final coffeeGramsTextFinder = find.byValueKey('coffeeGrams-text');
-      expect(await driver.getText(coffeeGramsTextFinder), "22");
+      expect(await driver.getText(coffeeGramsTextFinder),
+          "22g - finely ground coffee");
       final waterGramsTextFinder = find.byValueKey('waterGrams-text');
-      expect(await driver.getText(waterGramsTextFinder), "360");
+      expect(await driver.getText(waterGramsTextFinder), "360g - water");
       final recipeTotalTimeFinder = find.byValueKey('total-time-text');
       expect(await driver.getText(recipeTotalTimeFinder), "Total: 3:45");
       final backButtonFinder = find.byValueKey('Back-Button');
@@ -90,9 +92,10 @@ void main() {
 
       expect(await driver.getText(recipeNameTextFinder), "Sweet Maria's");
       final coffeeGramsTextFinder = find.byValueKey('coffeeGrams-text');
-      expect(await driver.getText(coffeeGramsTextFinder), "22");
+      expect(await driver.getText(coffeeGramsTextFinder),
+          "22g - finely ground coffee");
       final waterGramsTextFinder = find.byValueKey('waterGrams-text');
-      expect(await driver.getText(waterGramsTextFinder), "360");
+      expect(await driver.getText(waterGramsTextFinder), "360g - water");
       final recipeTotalTimeFinder = find.byValueKey('total-time-text');
       expect(await driver.getText(recipeTotalTimeFinder), "Total: 3:45");
       final step1TextFinder = find.byValueKey('step1-text');
@@ -132,9 +135,10 @@ void main() {
 
       expect(await driver.getText(recipeNameTextFinder), "Houndstooth Coffee");
       final coffeeGramsTextFinder = find.byValueKey('coffeeGrams-text');
-      expect(await driver.getText(coffeeGramsTextFinder), "22");
+      expect(await driver.getText(coffeeGramsTextFinder),
+          "22g - finely ground coffee");
       final waterGramsTextFinder = find.byValueKey('waterGrams-text');
-      expect(await driver.getText(waterGramsTextFinder), "360");
+      expect(await driver.getText(waterGramsTextFinder), "360g - water");
       final recipeTotalTimeFinder = find.byValueKey('total-time-text');
       expect(await driver.getText(recipeTotalTimeFinder), "Total: 3:35");
       final step1TextFinder = find.byValueKey('step1-text');
@@ -182,9 +186,10 @@ void main() {
 
       expect(await driver.getText(recipeNameTextFinder), "Slight Glass");
       final coffeeGramsTextFinder = find.byValueKey('coffeeGrams-text');
-      expect(await driver.getText(coffeeGramsTextFinder), "22");
+      expect(await driver.getText(coffeeGramsTextFinder),
+          "22g - finely ground coffee");
       final waterGramsTextFinder = find.byValueKey('waterGrams-text');
-      expect(await driver.getText(waterGramsTextFinder), "300");
+      expect(await driver.getText(waterGramsTextFinder), "300g - water");
       final recipeTotalTimeFinder = find.byValueKey('total-time-text');
       expect(await driver.getText(recipeTotalTimeFinder), "Total: 3:15");
       final step1TextFinder = find.byValueKey('step1-text');
@@ -224,9 +229,10 @@ void main() {
 
       expect(await driver.getText(recipeNameTextFinder), "Serious Eats");
       final coffeeGramsTextFinder = find.byValueKey('coffeeGrams-text');
-      expect(await driver.getText(coffeeGramsTextFinder), "22");
+      expect(await driver.getText(coffeeGramsTextFinder),
+          "22g - finely ground coffee");
       final waterGramsTextFinder = find.byValueKey('waterGrams-text');
-      expect(await driver.getText(waterGramsTextFinder), "300");
+      expect(await driver.getText(waterGramsTextFinder), "300g - water");
       final recipeTotalTimeFinder = find.byValueKey('total-time-text');
       expect(await driver.getText(recipeTotalTimeFinder), "Total: 5:15");
       final step1TextFinder = find.byValueKey('step1-text');
@@ -274,9 +280,10 @@ void main() {
 
       expect(await driver.getText(recipeNameTextFinder), "Sweet Maria's");
       final coffeeGramsTextFinder = find.byValueKey('coffeeGrams-text');
-      expect(await driver.getText(coffeeGramsTextFinder), "22");
+      expect(await driver.getText(coffeeGramsTextFinder),
+          "22g - finely ground coffee");
       final waterGramsTextFinder = find.byValueKey('waterGrams-text');
-      expect(await driver.getText(waterGramsTextFinder), "360");
+      expect(await driver.getText(waterGramsTextFinder), "360g - water");
       final recipeTotalTimeFinder = find.byValueKey('total-time-text');
       expect(await driver.getText(recipeTotalTimeFinder), "Total: 3:45");
       final step1TextFinder = find.byValueKey('step1-text');
@@ -358,9 +365,10 @@ void main() {
 
     expect(await driver.getText(recipeNameTextFinder), "Sweet Maria's");
     final coffeeGramsTextFinder = find.byValueKey('coffeeGrams-text');
-    expect(await driver.getText(coffeeGramsTextFinder), "22");
+    expect(await driver.getText(coffeeGramsTextFinder),
+        "22g - finely ground coffee");
     final waterGramsTextFinder = find.byValueKey('waterGrams-text');
-    expect(await driver.getText(waterGramsTextFinder), "360");
+    expect(await driver.getText(waterGramsTextFinder), "360g - water");
     final recipeTotalTimeFinder = find.byValueKey('total-time-text');
     expect(await driver.getText(recipeTotalTimeFinder), "Total: 3:45");
     final step1TextFinder = find.byValueKey('step1-text');
